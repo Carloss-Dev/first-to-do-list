@@ -1,0 +1,96 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font-family: 'Roboto', Arial;
+}
+
+.flex-section {
+    width: 100vw;
+    height: 100vh;
+    background-color: #eaeef7;
+    display: flex;
+    flex-direction: row;
+}
+
+.inicio {
+    width: 25vw;
+    height: 100vh;
+    border: 1pt solid black;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.inicio-titulo {
+    width: 100%;
+    height: 20%;
+    border: 1pt solid green;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.data-inputs-title {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1pt solid green;
+    position: relative;
+}
+.title-label {
+
+    position: absolute;
+    left: 12px;
+    bottom: 10px;
+    font-size: 18px;
+    z-index: 1;
+}
+.input-titulo {
+    position: absolute;
+    z-index: 1;
+}
+.input-titulo:focus + .title-label
+ {
+    font-size: 10px;
+}
+
+.inicio-titulo h1 {
+    font-size: 35px;
+    font-family: 'Roboto', Arial;
+    color: rgb(69, 66, 66);
+}
+
+.data-inputs {
+    width: 100%;
+    height: 50%;
+    border: 1pt solid black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.data-inputs input {
+    width: 95%;
+    height: 2.5rem;
+}
+
+.desc-label {
+    align-self: flex-start;
+    font-weight: bold;
+    font-size: 20px;
+
+}
+
+.todo-cards {
+    align-self: center;
+    border: 1pt solid black;
+    width: 75vw;
+    height: 80vh;
+    background-color: #f8f8ff;
+}
