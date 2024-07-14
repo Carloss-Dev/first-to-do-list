@@ -16,26 +16,26 @@
 
 # Documentando algumas funções interessantes que mexi pela primeira vez.
 
- const cadastrarId = () => {
+    const cadastrarId = () => {
 
-  const tarefas = JSON.parse(localStorage.getItem('tarefas')) || [];
+      const tarefas = JSON.parse(localStorage.getItem('tarefas')) || [];
 
-  if (tarefas.length < 1) {
-    return 1;
-  } else {
-    const maiorId = tarefas.reduce((max, value) => {
-
-      if(max.id > value.id) {
-
-        return max;
+      if (tarefas.length < 1) {
+        return 1;
       } else {
-      
-        return value;
+        const maiorId = tarefas.reduce((max, value) => {
+
+          if(max.id > value.id) {
+
+            return max;
+          } else {
+          
+            return value;
+          }
+        });
+        return maiorId.id +1;
       }
-    });
-    return maiorId.id +1;
-  }
-};
+    };
 
 **Função `cadastrarId`**
 
