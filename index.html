@@ -18,24 +18,33 @@
                 <h1> To-do List </h1>
             </div>
             <div class="data-inputs">
+                <div class="h2-container">
+                    <h2>Preencha os campos abaixo:</h2>
+                </div>
                 <div class="data-inputs-title">
-                    <label for="titulo" class="title-label"> Título: </label>
-                    <input type="text" name="" id="titulo" class="input-titulo">
+
+                    <input type="text" name="" id="inputTitulo" class="" required="required">
+                    <label for="inputTitulo"> TÍTULO </label>
                 </div>
                 <div class="data-inputs-desc">
-                    <label for="descricao" class="desc-label">Descrição:</label>
-                <textarea name="" id="descricao" cols="37" rows="10"></textarea>
+                    
+                    <textarea name="" id="descricao" required></textarea>
+                    <label for="descricao" class="desc-label">DESCRIÇÃO</label>
                 </div>
-                
+                <div class="inicio-button">
+                    <button id="adicionarBotao"> + Adicionar</button>
+                </div>
+
             </div>
         </nav>
-        <section class="todo-cards">
-
+        <section class="toDo-cards">
+            <div class="cards-position" id="cardPosition">
+                
+            </div>
         </section>
     </section>
 
-
-    </nav>
 </body>
+<script src="script.js"></script>
 
 </html>
