@@ -28,21 +28,22 @@ const mostrarCard = () => {
   const tarefas = JSON.parse(localStorage.getItem('tarefas')) || [];
   const divCard = document.querySelector('#cardPosition');
   
-  const card = document.createElement('div');
-  const cardTitle = document.createElement('div');
-  const subtitle = document.createElement('span');
-  const cardContent = document.createElement('div');
-  const paragraph = document.createElement('span');
-  const cardButtons = document.createElement('div');
-  const editButton = document.createElement('button');
-  const removeButton = document.createElement('button');
-  
-  tarefas.map( (tarefa, index) => {
-  
-  const id = tarefa.id
-  const titulo = tarefa.titulo;
-  const descricao = tarefa.descricao;
+  divCard.innerHTML = ``;
  
+  tarefas.forEach( (tarefa) => {
+    
+    const id = tarefa.id
+    const titulo = tarefa.titulo;
+    const descricao = tarefa.descricao;
+    
+    const card = document.createElement('div');
+    const cardTitle = document.createElement('div');
+    const subtitle = document.createElement('span');
+    const cardContent = document.createElement('div');
+    const paragraph = document.createElement('span');
+    const cardButtons = document.createElement('div');
+    const editButton = document.createElement('button');
+    const removeButton = document.createElement('button');
 
   divCard.append(card, cardTitle, subtitle, cardContent, paragraph, cardButtons, editButton, removeButton);
     card.classList.add('card');
@@ -52,17 +53,30 @@ const mostrarCard = () => {
     cardButtons.classList.add('card-buttons');
   cardTitle.appendChild(subtitle);
     subtitle.classList.add('subtitle');
-      subtitle.innerHTML = `${titulo} id: ${id}`;
+      subtitle.innerHTML = `${titulo}`;
   cardContent.appendChild(paragraph);
     paragraph.classList.add('paragraph');
       paragraph.innerHTML = descricao;
   cardButtons.append(editButton, removeButton)
     editButton.classList.add('editar-botao');
       editButton.innerHTML = "Editar";
+      editButton.setAttribute('id', 'editarBotao');
     removeButton.classList.add('excluir-botao');
       removeButton.innerHTML = 'Excluir';
+      removeButton.setAttribute('id', 'excluirBotao');
+      excluir()
   });
+};
 
+const excluir = (id) => {
+  const tarefas = JSON.parse(localStorage.getItem('tarefas'));
+  tarefas.forEach((tarefa) => {
+    id = tarefa.id;
+    console.log(id);
+    const botao = document.querySelector('#excluirBotao');
+    botao.classList.add(id);
+    botao.addEventListener('click', excluir);
+ });
 };
 
 const cadastrar = () => {
@@ -81,8 +95,6 @@ const cadastrar = () => {
 //? Botão de adicionar
 
 buttonAdd.addEventListener("click", () => {
-
-
   if (inTitulo.value === "") {
    alert("Digite o título");
     inTitulo.focus();
